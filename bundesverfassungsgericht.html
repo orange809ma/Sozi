@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bundesverfassungsgericht – Institutionen der BRD</title>
+    <link rel="icon" type="image/png" href="../images/favicon.png"> 
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Quicksand&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Lato', sans-serif;
+            background: linear-gradient(to bottom, #f8f9fa, #e3f2fd);
+        }
+
+        .hero {
+            background: linear-gradient(to bottom, #1976d2, #0d47a1);
+            padding: 2rem 1rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1, .hero .slogan, .hero .hero-line, .hero .subtext {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            color: #ffffff;
+            animation-delay: 0.2s;
+        }
+
+        .hero p.slogan {
+            font-size: 1.5rem;
+            color: #bbdefb;
+            margin: 0;
+            font-family: 'Quicksand', sans-serif;
+            animation-delay: 0.5s;
+        }
+
+        .hero-line {
+            width: 100px;
+            height: 3px;
+            background: #64b5f6;
+            margin: 1rem auto;
+            border-radius: 2px;
+            animation-delay: 0.8s;
+        }
+
+        .hero p.subtext {
+            font-size: 1rem;
+            color: #e3f2fd;
+            margin-top: 0.5rem;
+            font-family: 'Quicksand', sans-serif;
+            animation-delay: 1.1s;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo-kreis {
+            width: 210px;
+            height: 210px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            z-index: 1000;
+            animation: slideInLogo 1s ease-out forwards;
+        }
+
+        .logo-kreis img {
+            width: 150px;
+            height: auto;
+        }
+
+        @keyframes slideInLogo {
+            from { transform: translateX(-400px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .navbar {
+            width: 100%;
+            background: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .navbar a {
+            margin: 0 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .navbar a::after {
+            content: '';
+            display: block;
+            width: 0%;
+            height: 2px;
+            background: #64b5f6;
+            margin-top: 5px;
+            transition: width 0.3s;
+            border-radius: 2px;
+        }
+
+        .navbar a:hover {
+            transform: translateY(-3px);
+        }
+
+        .navbar a:hover::after {
+            width: 100%;
+        }
+
+        .navbar a.active {
+            color: #1976d2;
+        }
+
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out, transform 1.5s ease;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        section {
+            padding: 4rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            position: relative;
+        }
+
+        section:nth-child(even) {
+            background: #e3f2fd;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            color: #1565c0;
+            margin-bottom: 1rem;
+        }
+        
+        section h3 {
+            font-size: 1.5rem;
+            color: #1565c0;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        section p, section ul, section table {
+            font-size: 1.1rem;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        section ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        
+        section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+
+        section table th, section table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        section table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        section a.button {
+            color: white;
+            background: #1976d2;
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 1rem;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        section a.button:hover {
+            background: #0d47a1;
+            text-decoration: underline;
+        }
+
+        /* Container für das eingebettete Video */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Seitenverhältnis (Höhe / Breite = 9 / 16 = 0.5625) */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px; /* Abgerundete Ecken wie beim Bild */
+            transition: transform 0.5s;
+        }
+
+        .video-container:hover {
+            transform: scale(1.05); /* Zoom-Effekt wie beim Bild */
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .footer {
+            background: #ffffff;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            font-size: 0.9rem;
+            border-top: 1px solid #ccc;
+            margin-top: 4rem;
+        }
+
+        .footer a {
+            color: #1976d2;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+            transition: all 0.8s ease-out;
+        }
+
+        .section-content {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-text {
+            flex: 1; /* Nimmt den verfügbaren Platz ein */
+            min-width: 300px;
+        }
+
+        /* Anpassung für section-image und die darin enthaltenen Bilder */
+        .section-image {
+            flex: 1; /* Nimmt den verfügbaren Platz ein */
+            min-width: 300px; /* Mindestbreite, damit es nicht zu klein wird */
+            max-width: 500px; /* Begrenzt die maximale Breite des Bildcontainers */
+            text-align: center;
+        }
+        
+        .section-image img {
+            width: 100%; /* Bild füllt den verfügbaren Platz im section-image Container aus */
+            height: auto; /* Höhe wird proportional angepasst */
+            max-width: 100%; /* Stellt sicher, dass das Bild nicht über den Container hinausgeht */
+            border-radius: 10px;
+            transition: transform 0.5s;
+        }
+
+        .section-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .logo-mini img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Responsive Anpassungen für kleinere Bildschirme */
+        @media (max-width: 768px) {
+            .section-content {
+                flex-wrap: wrap; /* Erlaubt das Umbrechen von Text und Bild untereinander */
+                flex-direction: column; /* Stapelt die Elemente vertikal */
+                align-items: center; /* Zentriert die Elemente */
+            }
+
+            .section-image, .section-text {
+                width: 100%; /* Nimmt die volle Breite ein */
+                max-width: 100%; /* Stellt sicher, dass keine festen max-widths stören */
+                min-width: unset; /* Setzt min-width zurück */
+            }
+
+            .section-image img {
+                max-width: 80%; /* Bildgröße auf kleineren Bildschirmen etwas reduzieren */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hero">
+        <h1>Das Bundesverfassungsgericht</h1>
+        <p class="slogan">Der Hüter der Verfassung</p>
+        <div class="hero-line"></div>
+        <p class="subtext">Höchstes deutsches Gericht im Bereich des Verfassungsrechts.</p>
+    </div>
+
+    <div class="logo-kreis">
+        <img src="../bundesregierung/deutschland-adler.jpg" alt="Logo des Deutschland Adlers">
+    </div>
+
+    <div class="navbar">
+        <a href="../bundesregierung/bundesregierung.html">Bundesregierung</a>
+        <a href="../Bundestag/bundestag.html">Bundestag</a>
+        <a href="../bundesrat/bundesrat.html">Bundesrat</a>
+        <a href="../bundespräsident/bundespräsident.html">Bundespräsident</a>
+        <a href="bundesverfassungsgericht.html" class="active">Bundesverfassungsgericht</a>
+ 
+    </div>
+
+    <div class="slideshow-container">
+        <div class="slide"><img src="../bundesregierung/slidea.jpg" alt="Regierungsgebäude"></div>
+        <div class="slide"><img src="../bundesregierung/slideb.jpg" alt="Abstimmung im Parlament"></div>
+        <div class="slide"><img src="../bundesregierung/slidec.jpg" alt="Brandenburger Tor"></div>
+        <div class="slide"><img src="../bundesregierung/slided.jpeg" alt="Sitzungssaal"></div>
+    </div>
+
+    <section id="was-ist-bundesverfassungsgericht" class="animate-on-scroll">
+        <div class="section-content">
+            <div class="section-text">
+                <h2>Was ist das Bundesverfassungsgericht?</h2>
+                <p>Das **Bundesverfassungsgericht (BVerfG)** ist das höchste deutsche Gericht im Bereich des Verfassungsrechts.</p>
+                <p>Es wacht über die Einhaltung des **Grundgesetzes** und gilt als **„Hüter der Verfassung“**.</p>
+                <p>Seine Entscheidungen sind für alle staatlichen Organe bindend.</p>
+                <a href="#zustaendigkeiten-bverfg" class="button">Weiter zu "Zuständigkeiten"</a> 
+            </div>
+            <div class="section-image">
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/bpHAXzjWsvI?si=OrPlg6lVf-gkRZlQ" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="zustaendigkeiten-bverfg" class="animate-on-scroll">
+        <div class="section-content">
+            
+            <div class="section-text">
+                <h2>1. Zuständigkeiten des Bundesverfassungsgerichts</h2>
+                <p>Das BVerfG wird nur auf Antrag tätig.</p>
+                <p>Die Zuständigkeiten sind im Grundgesetz und im Bundesverfassungsgerichtsgesetz geregelt.</p>
+                <h3>a) Verfassungsbeschwerde</h3>
+                <ul>
+                    <li>**Antragsteller:** Jede Person, die sich in ihren Grundrechten verletzt sieht</li>
+                    <li>**Geprüft wird:** Ob ein staatlicher Akt Grundrechte verletzt</li>
+                    <li>**Beispiel:** Ein Bürger reicht Beschwerde gegen ein Gesetz ein, das seine Meinungsfreiheit einschränkt</li>
+                </ul>
+                <h3>b) Abstrakte Normenkontrolle</h3>
+                <ul>
+                    <li>**Antragsteller:** Bundesregierung, Landesregierungen oder 1/3 der Bundestagsabgeordneten</li>
+                    <li>**Geprüft wird:** Ob ein Gesetz mit dem Grundgesetz vereinbar ist</li>
+                    <li>**Beispiel:** Bundesregierung zweifelt ein Landesgesetz an</li>
+                </ul>
+                <h3>c) Konkrete Normenkontrolle</h3>
+                <ul>
+                    <li>**Antragsteller:** Gerichte</li>
+                    <li>**Geprüft wird:** Ob ein Gesetz, das im konkreten Fall angewendet werden soll, verfassungsgemäß ist</li>
+                    <li>**Beispiel:** Ein Amtsgericht bittet das BVerfG um Prüfung vor Urteilsverkündung</li>
+                </ul>
+                <h3>d) Organstreitverfahren</h3>
+                <ul>
+                    <li>**Antragsteller:** Verfassungsorgane oder Teile davon</li>
+                    <li>**Geprüft wird:** Ob ein Organ durch ein anderes in seinen Rechten verletzt wurde</li>
+                    <li>**Beispiel:** Bundestag klagt gegen den Bundesrat wegen Kompetenzüberschreitung</li>
+                </ul>
+                <h3>e) Bund-Länder-Streit</h3>
+                <ul>
+                    <li>**Antragsteller:** Bund oder Länder</li>
+                    <li>**Geprüft wird:** Wer im Streitfall verfassungsrechtlich zuständig ist</li>
+                    <li>**Beispiel:** Ein Land klagt gegen den Bund wegen Eingriffs in Gesetzgebungskompetenz</li>
+                </ul>
+                <a href="#macht-ohnmacht-bverfg" class="button">Weiter zu "Macht und Ohnmacht"</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="macht-ohnmacht-bverfg" class="animate-on-scroll">
+        <div class="section-content">
+            <div class="section-text">
+                <h2>2. Macht und Ohnmacht des Bundesverfassungsgerichts</h2>
+                <h3>Macht:</h3>
+                <ul>
+                    <li>Legt das **Grundgesetz** aus</li>
+                    <li>Kann Gesetze für nichtig erklären</li>
+                    <li>Einfluss auf politische Prozesse (z. B. durch Vorgaben)</li>
+                    <li>Schützt Grundrechte und sichert die demokratische Ordnung</li>
+                </ul>
+                <h3>Ohnmacht:</h3>
+                <ul>
+                    <li>Keine Eigeninitiative – nur auf Antrag tätig</li>
+                    <li>Keine eigenen Mittel zur Durchsetzung der Urteile</li>
+                    <li>Auf Akzeptanz durch Politik und Gesellschaft angewiesen</li>
+                </ul>
+                <a href="#fachbegriffe" class="button">Weiter zu "Fachbegriffe"</a>
+            </div>
+            <div class="section-image">
+                <img src="../bundesverfassungsgericht/section3.jpg" alt="Bild zur Macht und Ohnmacht des BVerfG">
+            </div>
+        </div>
+    </section>
+
+    <section id="fachbegriffe" class="animate-on-scroll">
+        <div class="section-content">
+            <div class="section-image">
+                <img src="../bundesverfassungsgericht/section4.jpg" alt="Bild zu Fachbegriffen">
+            </div>
+            <div class="section-text">
+                <h2>3. Fachbegriffe</h2>
+                <p>**Verfassungsbeschwerde**</p>
+                <ul>
+                    <li>Rechtsbehelf für Bürger, um eine Grundrechtsverletzung durch staatliches Handeln geltend zu machen</li>
+                </ul>
+                <p>**Abstrakte Normenkontrolle**</p>
+                <ul>
+                    <li>Prüfung eines Gesetzes auf Verfassungsmäßigkeit – ohne konkreten Anlass</li>
+                </ul>
+                <p>**Konkrete Normenkontrolle**</p>
+                <ul>
+                    <li>Prüfung einer Rechtsnorm, wenn ein Gericht sie im konkreten Fall für verfassungswidrig hält</li>
+                </ul>
+                <p>**Organstreitverfahren**</p>
+                <ul>
+                    <li>Klärung von Streitigkeiten zwischen obersten Verfassungsorganen über deren Rechte und Pflichten</li>
+                </ul>
+                <p>**Bund-Länder-Streit**</p>
+                <ul>
+                    <li>Verfahren zur Klärung von Zuständigkeitskonflikten zwischen Bund und Ländern</li>
+                </ul>
+                <a href="#was-ist-bundesverfassungsgericht" class="button">Zurück zum Anfang des Bundesverfassungsgerichts</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-left">
+            <a href="../datenschutz.html">Datenschutz</a>
+        </div>
+        <div class="footer-center">
+            © 2025 Politische Institutionen BRD
+        </div>
+        <div class="footer-right">
+            <a href="../impressum.html">Impressum</a>
+        </div>
+    </footer>
+
+    <script>
+        // Slideshow Funktion
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        function showSlides() {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slideIndex++;
+            if (slideIndex > slides.length) slideIndex = 1;
+            slides[slideIndex - 1].classList.add('active');
+            setTimeout(showSlides, 3000);
+        }
+        showSlides();
+    </script>
+
+    <script>
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // observer.unobserve(entry.target); // Optional: Animation nur einmal
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Setzt den aktiven Navigationspunkt basierend auf der aktuellen Seite
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPath = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.navbar a');
+            navLinks.forEach(link => {
+                // Prüfen, ob der href-Wert des Links mit dem aktuellen Dateinamen übereinstimmt
+                if (link.getAttribute('href').endsWith('bundesverfassungsgericht.html')) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

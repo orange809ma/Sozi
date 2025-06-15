@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bundespräsident – Institutionen der BRD</title>
+    <link rel="icon" type="image/png" href="../images/favicon.png"> 
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Quicksand&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Lato', sans-serif;
+            background: linear-gradient(to bottom, #f8f9fa, #e3f2fd);
+        }
+
+        .hero {
+            background: linear-gradient(to bottom, #1976d2, #0d47a1);
+            padding: 2rem 1rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1, .hero .slogan, .hero .hero-line, .hero .subtext {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            color: #ffffff;
+            animation-delay: 0.2s;
+        }
+
+        .hero p.slogan {
+            font-size: 1.5rem;
+            color: #bbdefb;
+            margin: 0;
+            font-family: 'Quicksand', sans-serif;
+            animation-delay: 0.5s;
+        }
+
+        .hero-line {
+            width: 100px;
+            height: 3px;
+            background: #64b5f6;
+            margin: 1rem auto;
+            border-radius: 2px;
+            animation-delay: 0.8s;
+        }
+
+        .hero p.subtext {
+            font-size: 1rem;
+            color: #e3f2fd;
+            margin-top: 0.5rem;
+            font-family: 'Quicksand', sans-serif;
+            animation-delay: 1.1s;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo-kreis {
+            width: 210px;
+            height: 210px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            z-index: 1000;
+            animation: slideInLogo 1s ease-out forwards;
+        }
+
+        .logo-kreis img {
+            width: 150px;
+            height: auto;
+        }
+
+        @keyframes slideInLogo {
+            from { transform: translateX(-400px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .navbar {
+            width: 100%;
+            background: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .navbar a {
+            margin: 0 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .navbar a::after {
+            content: '';
+            display: block;
+            width: 0%;
+            height: 2px;
+            background: #64b5f6;
+            margin-top: 5px;
+            transition: width 0.3s;
+            border-radius: 2px;
+        }
+
+        .navbar a:hover {
+            transform: translateY(-3px);
+        }
+
+        .navbar a:hover::after {
+            width: 100%;
+        }
+
+        .navbar a.active {
+            color: #1976d2;
+        }
+
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out, transform 1.5s ease;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        section {
+            padding: 4rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            position: relative;
+        }
+
+        section:nth-child(even) {
+            background: #e3f2fd;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            color: #1565c0;
+            margin-bottom: 1rem;
+        }
+        
+        section h3 {
+            font-size: 1.5rem;
+            color: #1565c0;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        section p, section ul, section table {
+            font-size: 1.1rem;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        section ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        
+        section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+
+        section table th, section table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        section table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        section a.button {
+            color: white;
+            background: #1976d2;
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 1rem;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        section a.button:hover {
+            background: #0d47a1;
+            text-decoration: underline;
+        }
+
+        /* Container für das eingebettete Video */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Seitenverhältnis (Höhe / Breite = 9 / 16 = 0.5625) */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px; /* Abgerundete Ecken wie beim Bild */
+            transition: transform 0.5s;
+        }
+
+        .video-container:hover {
+            transform: scale(1.05); /* Zoom-Effekt wie beim Bild */
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .footer {
+            background: #ffffff;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            font-size: 0.9rem;
+            border-top: 1px solid #ccc;
+            margin-top: 4rem;
+        }
+
+        .footer a {
+            color: #1976d2;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+            transition: all 0.8s ease-out;
+        }
+
+        .section-content {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-text {
+            flex: 1; /* Nimmt den verfügbaren Platz ein */
+            min-width: 300px;
+        }
+
+        /* Anpassung für section-image und die darin enthaltenen Bilder */
+        .section-image {
+            flex: 1; /* Nimmt den verfügbaren Platz ein */
+            min-width: 300px; /* Mindestbreite, damit es nicht zu klein wird */
+            max-width: 500px; /* Begrenzt die maximale Breite des Bildcontainers */
+            text-align: center;
+        }
+        
+        .section-image img {
+            width: 100%; /* Bild füllt den verfügbaren Platz im section-image Container aus */
+            height: auto; /* Höhe wird proportional angepasst */
+            max-width: 100%; /* Stellt sicher, dass das Bild nicht über den Container hinausgeht */
+            border-radius: 10px;
+            transition: transform 0.5s;
+        }
+
+        .section-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .logo-mini img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Responsive Anpassungen für kleinere Bildschirme */
+        @media (max-width: 768px) {
+            .section-content {
+                flex-wrap: wrap; /* Erlaubt das Umbrechen von Text und Bild untereinander */
+                flex-direction: column; /* Stapelt die Elemente vertikal */
+                align-items: center; /* Zentriert die Elemente */
+            }
+
+            .section-image, .section-text {
+                width: 100%; /* Nimmt die volle Breite ein */
+                max-width: 100%; /* Stellt sicher, dass keine festen max-widths stören */
+                min-width: unset; /* Setzt min-width zurück */
+            }
+
+            .section-image img {
+                max-width: 80%; /* Bildgröße auf kleineren Bildschirmen etwas reduzieren */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hero">
+        <h1>Der Bundespräsident</h1>
+        <p class="slogan">Das Staatsoberhaupt Deutschlands</p>
+        <div class="hero-line"></div>
+        <p class="subtext">Wichtige Informationen zu den Aufgaben und der Rolle des Bundespräsidenten.</p>
+    </div>
+
+    <div class="logo-kreis">
+        <img src="../bundesregierung/deutschland-adler.jpg" alt="Logo des Deutschland Adlers">
+    </div>
+
+    <div class="navbar">
+        <a href="../bundesregierung/bundesregierung.html">Bundesregierung</a>
+        <a href="../Bundestag/bundestag.html">Bundestag</a>
+        <a href="../bundesrat/bundesrat.html">Bundesrat</a>
+        <a href="bundespräsident.html" class="active">Bundespräsident</a>
+        <a href="../bundesverfassungsgericht/bundesverfassungsgericht.html">Bundesverfassungsgericht</a>
+
+    </div>
+
+    <div class="slideshow-container">
+        <div class="slide"><img src="../bundesregierung/slidea.jpg" alt="Regierungsgebäude"></div>
+        <div class="slide"><img src="../bundesregierung/slideb.jpg" alt="Abstimmung im Parlament"></div>
+        <div class="slide"><img src="../bundesregierung/slidec.jpg" alt="Brandenburger Tor"></div>
+        <div class="slide"><img src="../bundesregierung/slided.jpeg" alt="Sitzungssaal"></div>
+    </div>
+
+    <section id="was-ist-bundespraesident" class="animate-on-scroll">
+        <div class="section-content">
+            <div class="section-text">
+                <h2>Was ist der Bundespräsident?</h2>
+                <p>Der **Bundespräsident** ist das Staatsoberhaupt der Bundesrepublik Deutschland.</p>
+                <p>Er steht über den Parteien und repräsentiert die Einheit des Staates.</p>
+                <p>Seine Aufgaben sind überwiegend repräsentativer Natur, aber er übernimmt auch wichtige verfassungsrechtliche Funktionen.</p>
+                <p>Die Amtszeit beträgt fünf Jahre; eine einmalige Wiederwahl ist möglich.</p>
+                <a href="#aufgaben-bundespraesident" class="button">Weiter zu "Aufgaben des Bundespräsidenten"</a> 
+            </div>
+            <div class="section-image">
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/m-SepR7UBFM?si=Yjrjkgu7CiYeM848" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="aufgaben-bundespraesident" class="animate-on-scroll">
+        <div class="section-content">
+            <div class="section-image">
+                <img src="../bundespräsident/section2.jpg" alt="Bild zu den Aufgaben des Bundespräsidenten">
+            </div>
+            <div class="section-text">
+                <h2>1. Aufgaben des Bundespräsidenten</h2>
+                <p>Die Aufgaben lassen sich in zwei Hauptbereiche gliedern:</p>
+                <h3>a) Repräsentation und Integration</h3>
+                <ul>
+                    <li>Repräsentiert Deutschland nach außen (völkerrechtlich)</li>
+                    <li>Schließt Verträge im Namen des Bundes</li>
+                    <li>Empfängt ausländische Staatsgäste</li>
+                    <li>Wirkt durch Reden und Ansprachen gesellschaftlich integrierend</li>
+                </ul>
+                <h3>b) Staatliche Funktionen</h3>
+                <ul>
+                    <li>Ernennt und entlässt Kanzler, Minister, Richter, Beamte und Offiziere</li>
+                    <li>Hat das Recht zur Begnadigung in Einzelfällen</li>
+                    <li>Kann unter bestimmten Voraussetzungen den Bundestag auflösen (z. B. nach gescheiterter Vertrauensfrage)</li>
+                </ul>
+                <a href="#mitwirkung-gesetzgebung" class="button">Weiter zu "Mitwirkung an der Gesetzgebung"</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="mitwirkung-gesetzgebung" class="animate-on-scroll">
+        <div class="section-content">
+            <div class="section-text">
+                <h2>2. Mitwirkung an der Gesetzgebung</h2>
+                <p>Der Bundespräsident ist der letzte Schritt im Gesetzgebungsverfahren:</p>
+                <ul>
+                    <li>Unterzeichnet („fertigt aus“) jedes Gesetz, bevor es in Kraft treten kann</li>
+                    <li>Führt dabei eine **formelle Prüfung** durch:
+                        <ul>
+                            <li>→ Ist das Gesetz ordnungsgemäß zustande gekommen?</li>
+                        </ul>
+                    </li>
+                    <li>In seltenen Fällen auch **materielle Prüfung**:
+                        <ul>
+                            <li>→ Entspricht das Gesetz dem Grundgesetz?</li>
+                        </ul>
+                    </li>
+                    <li>Nach der Ausfertigung wird das Gesetz im Bundesgesetzblatt veröffentlicht – erst dann gilt es.</li>
+                </ul>
+                <a href="#fachbegriff-bundesversammlung" class="button">Weiter zu "Fachbegriff: Bundesversammlung"</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="fachbegriff-bundesversammlung" class="animate-on-scroll">
+        <div class="section-content">
+            <div class="section-image">
+                <!-- Dieses Bild könnte ein spezifisches Bild zur Bundesversammlung sein, oder ein generelles Bild -->
+                <img src="../bundespräsident/section4.jpg" alt="Bild zur Bundesversammlung">
+            </div>
+            <div class="section-text">
+                <h2>3. Fachbegriff: Bundesversammlung</h2>
+                <p>Die **Bundesversammlung** ist ein Verfassungsorgan, das ausschließlich für die Wahl des Bundespräsidenten zuständig ist.</p>
+                <h3>Zusammengesetzt aus:</h3>
+                <ul>
+                    <li>→ allen Mitgliedern des Bundestages</li>
+                    <li>→ ebenso vielen Vertreter:innen der Länderparlamente</li>
+                </ul>
+                <p>Sie tritt spätestens 30 Tage vor Ablauf der Amtszeit des Bundespräsidenten zusammen.</p>
+                <p>Die Bundesversammlung existiert nur zu diesem Zweck und tagt nicht regelmäßig.</p>
+                <a href="#was-ist-bundespraesident" class="button">Zurück zum Anfang des Bundespräsidenten</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-left">
+            <a href="../datenschutz.html">Datenschutz</a>
+        </div>
+        <div class="footer-center">
+            © 2025 Politische Institutionen BRD
+        </div>
+        <div class="footer-right">
+            <a href="../impressum.html">Impressum</a>
+        </div>
+    </footer>
+
+    <script>
+        // Slideshow Funktion
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        function showSlides() {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slideIndex++;
+            if (slideIndex > slides.length) slideIndex = 1;
+            slides[slideIndex - 1].classList.add('active');
+            setTimeout(showSlides, 3000);
+        }
+        showSlides();
+    </script>
+
+    <script>
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // observer.unobserve(entry.target); // Optional: Animation nur einmal
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Setzt den aktiven Navigationspunkt basierend auf der aktuellen Seite
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPath = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.navbar a');
+            navLinks.forEach(link => {
+                // Prüfen, ob der href-Wert des Links mit dem aktuellen Dateinamen übereinstimmt
+                if (link.getAttribute('href').endsWith('bundespraesident.html')) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
