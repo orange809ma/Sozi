@@ -337,13 +337,6 @@
             transform: translateY(0);
         }
 
-        .logo-mini img {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
         /* Responsive Anpassungen für kleinere Bildschirme */
         @media (max-width: 768px) {
             .section-content {
@@ -375,23 +368,23 @@
     </div>
 
     <div class="logo-kreis">
-        <img src="./deutschland-adler.jpg" alt="Logo des Deutschland Adlers">
+        <img src="./images/deutschland-adler.jpg" alt="Logo des Deutschland Adlers">
     </div>
 
     <div class="navbar">
-        <a href="bundesregierung.html" class="active">Bundesregierung</a>
-        <a href="../Bundestag/bundestag.html">Bundestag</a>
-        <a href="../bundesrat/bundesrat.html">Bundesrat</a>
-        <a href="../bundespräsident/bundespräsident.html">Bundespräsident</a>
-        <a href="../bundesverfassungsgericht/bundesverfassungsgericht.html">Bundesverfassungsgericht</a>
-
+        <a href="index.html" class="active">Bundesregierung</a>
+        <a href="bundestag/bundestag.html">Bundestag</a>
+        <a href="bundesrat/bundesrat.html">Bundesrat</a>
+        <a href="bundespraesident/bundespraesident.html">Bundespräsident</a>
+        <a href="bundesverfassungsgericht/bundesverfassungsgericht.html">Bundesverfassungsgericht</a>
+        <a href="quellen.html">Quellen</a>
     </div>
 
     <div class="slideshow-container">
-        <div class="slide"><img src="./slidea.jpg" alt="Regierungsgebäude"></div>
-        <div class="slide"><img src="./slideb.jpg" alt="Abstimmung im Parlament"></div>
-        <div class="slide"><img src="./slidec.jpg" alt="Brandenburger Tor"></div>
-        <div class="slide"><img src="./slided.jpeg" alt="Sitzungssaal"></div>
+        <div class="slide"><img src="./images/slidea.jpg" alt="Regierungsgebäude"></div>
+        <div class="slide"><img src="./images/slideb.jpg" alt="Abstimmung im Parlament"></div>
+        <div class="slide"><img src="./images/slidec.jpg" alt="Brandenburger Tor"></div>
+        <div class="slide"><img src="./images/slided.jpeg" alt="Sitzungssaal"></div>
     </div>
 
     <section id="bundesregierung_definition" class="animate-on-scroll">
@@ -410,7 +403,7 @@
             <div class="section-image">
                 <div class="video-container">
                     <iframe 
-                        src="https://www.youtube.com/embed/_UJNHPdB258?si=vSixio7q2TtBwEEx" 
+                        src="" <!-- VIDEO URL HIER EINFÜGEN --> 
                         title="YouTube video player" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -425,7 +418,7 @@
     <section id="bundesregierung_regieren" class="animate-on-scroll">
         <div class="section-content">
             <div class="section-image">
-                <img src="./section2.jpg" alt="Bild zur Erklärung von Regieren">
+                <img src="./images/section2.jpg" alt="Bild zur Erklärung von Regieren">
             </div>
             <div class="section-text">
                 <h2>Was heißt „regieren“?</h2>
@@ -476,7 +469,7 @@
                 <a href="#bundesregierung_definition" class="button">Zurück zum Anfang der Bundesregierung</a>
             </div>
             <div class="section-image">
-                <img src="./section3.jpg" alt="Bild zu wichtigen politischen Begriffen">
+                <img src="./images/section3.jpg" alt="Bild zu wichtigen politischen Begriffen">
             </div>
         </div>
     </section>
@@ -529,7 +522,7 @@
             const navLinks = document.querySelectorAll('.navbar a');
             navLinks.forEach(link => {
                 // Prüfen, ob der href-Wert des Links mit dem aktuellen Dateinamen übereinstimmt
-                if (link.getAttribute('href') === currentPath) {
+                if (link.getAttribute('href') === currentPath || (currentPath === '' && link.getAttribute('href') === 'index.html')) {
                     link.classList.add('active');
                 } else {
                     link.classList.remove('active');
